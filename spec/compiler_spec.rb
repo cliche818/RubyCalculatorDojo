@@ -4,8 +4,10 @@ describe Compiler do
   describe '.run' do
 
     [
-        [[2.0, :+, 2.0], AstNode.new(:+, 2.0, 2.0)],
-        [[2.0, :+, 1.0, :-, 3.0], AstNode.new(:-, AstNode.new(:+, 2.0, 1.0), 3.0)]
+        [[2, :+, 2], AstNode.new(:+, 2, 2)],
+        [[2, :+, 1, :-, 3], AstNode.new(:-, AstNode.new(:+, 2, 1), 3)],
+        [[2, :+, 1, :*, 3], AstNode.new(:+, 2, AstNode.new(:*, 1, 3))],
+        [[2, :*, 1, :+, 3, :*, 4], AstNode.new(:+, AstNode.new(:*, 2, 1), AstNode.new(:*, 3, 4))]
     ].each do |test|
       it "should take an #{test[0]} and turn it into a abstract syntax tree" do
         ast_node = Compiler.run(test[0])

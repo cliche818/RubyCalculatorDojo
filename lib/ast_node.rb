@@ -1,5 +1,5 @@
 class AstNode
-  attr_reader :operator, :arg1, :arg2
+  attr_accessor :operator, :arg1, :arg2
 
   def initialize(operator, arg1, arg2)
     @operator = operator
