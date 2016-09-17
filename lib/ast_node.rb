@@ -1,4 +1,6 @@
 class AstNode
+  attr_reader :operator, :arg1, :arg2
+
   def initialize(operator, arg1, arg2)
     @operator = operator
     @arg1 = arg1
@@ -17,5 +19,9 @@ class AstNode
     end
 
     Operation.run(@operator, arg1_evaluated_value, arg2_evaluated_value)
+  end
+
+  def ==(ast_node)
+    @operator == ast_node.operator && @arg1 == ast_node.arg1 && @arg2 == ast_node.arg2
   end
 end

@@ -28,4 +28,10 @@ describe AstNode do
       expect(parent_ast_node.evaluate).to eq(4+2+2)
     end
   end
+
+  describe '#==' do
+    it 'should return true if operator and args are equal' do
+      expect(AstNode.new(:+,2,2)).to eq(AstNode.new(:+,2,2))
+    end
+  end
 end
