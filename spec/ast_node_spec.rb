@@ -19,5 +19,13 @@ describe AstNode do
       parent_ast_node = AstNode.new(:+, child_ast_node, child2_ast_node)
       expect(parent_ast_node.evaluate).to eq(4+2)
     end
+
+    it 'should run the operation of an Ast Node of 3 levels' do
+      grandchild_ast_node = AstNode.new(:+, 2, 2)
+      child_ast_node = AstNode.new(:+, 2, grandchild_ast_node)
+      child2_ast_node = AstNode.new(:+, 1, 1)
+      parent_ast_node = AstNode.new(:+, child_ast_node, child2_ast_node)
+      expect(parent_ast_node.evaluate).to eq(4+2+2)
+    end
   end
 end
