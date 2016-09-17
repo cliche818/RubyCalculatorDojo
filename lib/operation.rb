@@ -4,6 +4,10 @@ class Operation
       arg1 + arg2
     elsif operator == :-
       arg1 - arg2
+    elsif operator == :*
+      arg1 * arg2
+    elsif operator == :/
+      arg1 / arg2
     end
   end
 end
