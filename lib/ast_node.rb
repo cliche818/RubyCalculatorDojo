@@ -1,10 +1,11 @@
 class AstNode
-  attr_accessor :operator, :arg1, :arg2
+  attr_accessor :operator, :arg1, :arg2, :tier
 
-  def initialize(operator, arg1, arg2)
+  def initialize(operator, arg1, arg2, tier=0)
     @operator = operator
     @arg1 = arg1
     @arg2 = arg2
+    @tier = tier
   end
 
   def evaluate
